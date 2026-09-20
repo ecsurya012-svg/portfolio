@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MY PORTFOLIO</title>
+
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        #body {
+            background-color: blanchedalmond;
+            text-align: center;
+            margin: 0;
+            font-size: 16px;
+        }
+
+        #port {
+            position: relative;
+        }
+
+        #head {
+            display: none;              
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            border: 2px solid black;
+            border-radius: 20px;
+            background-color: lightpink;
+            color: blueviolet;
+            padding: 15px;
+        }
+
+        #head.open {
+            display: flex;               
+        }
+
+        .menu-btn {
+            display: block;
+            margin: 10px auto;
+            font-size: 30px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: blueviolet;
+        }
+
+        #item-1, #item-2, #item-3, #item-4, #item-5 {
+            text-decoration: none;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            color: black;
+            width: 100%;
+            padding: 10px;
+            border-radius: 10px;
+            background-color: white;
+        }
+
+        h1 {
+            font-size: clamp(1.4rem, 5vw, 2.2rem);
+        }
+
+        h2 {
+            font-size: clamp(1.2rem, 4vw, 1.8rem);
+        }
+
+        p {
+            font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+            line-height: 1.6;
+        }
+
+        /* ---- HERO SECTION ---- */
+        #hero {
+            background-image: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+                               url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1500&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 80px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        #hero h1 {
+            font-size: clamp(1.8rem, 6vw, 3rem);
+            margin: 0;
+        }
+
+        #hero p {
+            font-size: clamp(1rem, 3vw, 1.4rem);
+            color: gold;
+            margin: 0;
+        }
+
+       
+        #sec-1 {
+            border: 2px solid chocolate;
+            border-radius: 20px;
+            margin: 10px;
+            padding: 15px;
+            background-color: lemonchiffon;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            color: brown;
+        }
+
+        #img-1 {
+            border: 2px solid black;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            max-width: 100%;
+        }
+
+
+        #sec-2 {
+            border: 2px solid orange;
+            border-radius: 20px;
+            padding: 15px;
+            background-color: lightgoldenrodyellow;
+            margin: 10px;
+            color: lightsalmon;
+        }
+
+        #head-2 {
+            display: grid;
+            grid-template-columns: 1fr;     
+            gap: 15px;
+            padding: 0;
+        }
+
+        .project-card {
+            text-decoration: none;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            color: navy;
+        }
+
+        .project-card .card {
+            border: 2px solid chocolate;
+            border-radius: 20px;
+            height: 100%;
+        }
+
+        .project-card img {
+            border-radius: 18px 18px 0 0;
+            height: 160px;
+            object-fit: cover;
+        }
+
+        /* ---- Skills section ---- */
+        #sec-3 {
+            border: 2px solid rosybrown;
+            border-radius: 20px;
+            margin: 10px;
+            padding: 15px;
+            background-color: lightgoldenrodyellow;
+            color: hotpink;
+        }
+
+        #list {
+            color: navy;
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        #list li {
+            background-color: white;
+            border-radius: 10px;
+            padding: 8px 16px;
+        }
+
+        /* ---- Blog section ---- */
+        #sec-blog {
+            border: 2px solid teal;
+            border-radius: 20px;
+            margin: 10px;
+            padding: 15px;
+            background-color: honeydew;
+            color: teal;
+        }
+
+        #blog-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+
+        .blog-post {
+            border: 2px solid teal;
+            border-radius: 15px;
+            padding: 12px;
+            background-color: white;
+            text-align: left;
+            color: #222;
+        }
+
+        .blog-post h3 {
+            margin: 0 0 6px 0;
+            color: teal;
+        }
+
+        .blog-post time {
+            font-size: 0.85rem;
+            color: gray;
+        }
+
+        /* ---- Contact / Form section ---- */
+        #sec-4 {
+            border: 2px solid firebrick;
+            border-radius: 20px;
+            margin: 10px;
+            padding: 15px;
+            background-color: lightyellow;
+            color: lightseagreen;
+        }
+
+        #text-1 {
+            color: gold;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        input, textarea {
+            width: 90%;
+            padding: 8px;
+            margin-bottom: 8px;
+            border-radius: 8px;
+            border: 1px solid gray;
+            font-size: 1rem;
+        }
+
+        button {
+            width: 50%;
+            padding: 10px;
+            border-radius: 10px;
+            border: none;
+            background-color: firebrick;
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        #footer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            border: 2px solid lightgreen;
+            border-radius: 20px;
+            margin: 10px;
+            padding: 15px;
+            background-color: floralwhite;
+        }
+
+        #email {
+            border: 2px solid;
+            border-radius: 20px;
+            padding: 5px 10px;
+            color: slategrey;
+            background-color: lightsalmon;
+        }
+
+        #mobile {
+            border: 2px solid;
+            border-radius: 20px;
+            padding: 5px 10px;
+            color: slategrey;
+            background-color: lightpink;
+        }
+
+        @media screen and (min-width: 768px) {
+
+            .menu-btn {
+                display: none;                 
+            }
+
+            #head {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+                align-items: center;
+            }
+
+            #item-1, #item-2, #item-3, #item-4, #item-5 {
+                width: auto;
+                background-color: transparent;
+            }
+
+            #head-2, #blog-grid {
+                grid-template-columns: repeat(2, 1fr);   
+            }
+
+            #footer {
+                flex-direction: row;
+                justify-content: space-evenly;
+            }
+
+            input, textarea {
+                width: 60%;
+            }
+
+            button {
+                width: 30%;
+            }
+        }
+
+       
+        @media screen and (min-width: 1025px) {
+
+            #head-2 {
+                grid-template-columns: repeat(3, 1fr);  
+            }
+
+            main {
+                max-width: 1100px;
+                margin: 0 auto;
+            }
+
+            #img-1 {
+                width: 200px;
+                height: 200px;
+            }
+
+            input, textarea {
+                width: 40%;
+            }
+
+            button {
+                width: 20%;
+            }
+        }
+
+    </style>
+</head>
+<body id="body">
+
+    <header id="port">
+        <button class="menu-btn" onclick="toggleMenu()" aria-label="Toggle navigation menu">☰</button>
+
+        <nav>
+            <div id="head">
+                <a id="item-1" href="#about">ABOUT</a>
+                <a id="item-2" href="#PROJECTS">PROJECTS</a>
+                <a id="item-3" href="#SKILL">SKILL</a>
+                <a id="item-5" href="#BLOG">BLOG</a>
+                <a id="item-4" href="#FORM">FORM</a>
+            </div>
+        </nav>
+
+        <!-- HERO SECTION -->
+        <div id="hero">
+            <h1>Surya K</h1>
+            <p>Full Stack Web Developer | MERN Stack</p>
+        </div>
+    </header>
+
+    <main>
+
+        <section id="sec-1">
+            <h2 id="about">ABOUT <img src="icon/information.png" alt="icon" width="25" height="25"></h2>
+            <img id="img-1" src="images/photo.jpeg" alt="user image">
+            <article>
+                <p>Hello! My name is Surya K. I have completed my Diploma and
+                am currently working while pursuing a Bachelor of Computer
+                Applications (BCA). I am interested in Information Technology,
+                Desktop Support, and Web Development. I am continuously
+                improving my technical skills and gaining practical experience
+                to build a successful career in the IT field.</p>
+            </article>
+        </section>
+
+        <section id="sec-2">
+            <h2 id="PROJECTS">PROJECTS <img src="icon/project.png" alt="icon" width="25" height="25"></h2>
+            <div id="head-2">
+
+                <article class="project-card">
+                    <a href="project/project1.html" data-bs-toggle="modal" data-bs-target="#projectModal1" role="button">
+                        <div class="card">
+                            <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&w=500&q=80" alt="Unordered list project screenshot">
+                            <div class="card-body">
+                                <h5 class="card-title">Unordered List</h5>
+                                <p class="card-text">A simple HTML page practicing unordered list structures and styling.</p>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+
+                <article class="project-card">
+                    <a href="project/project2.html" data-bs-toggle="modal" data-bs-target="#projectModal2" role="button">
+                        <div class="card">
+                            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=500&q=80" alt="Image tag project screenshot">
+                            <div class="card-body">
+                                <h5 class="card-title">Image Tag</h5>
+                                <p class="card-text">Practice project on embedding and styling images with the img tag.</p>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+
+                <article class="project-card">
+                    <a href="project/project3.html" data-bs-toggle="modal" data-bs-target="#projectModal3" role="button">
+                        <div class="card">
+                            <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=500&q=80" alt="First website project screenshot">
+                            <div class="card-body">
+                                <h5 class="card-title">First Website</h5>
+                                <p class="card-text">My very first full webpage built from scratch using semantic HTML.</p>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- Bootstrap Modals for each project -->
+        <div class="modal fade" id="projectModal1" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Unordered List</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Practiced building and styling nested unordered lists with custom bullets and spacing.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="projectModal2" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Image Tag</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Explored the img tag with alt text, responsive sizing, and object-fit properties.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="projectModal3" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">First Website</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>My first complete webpage, combining semantic layout with basic CSS styling.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section id="sec-3">
+            <h2 id="SKILL">SKILL <img src="icon/skill.png" alt="icon" width="25" height="25"></h2>
+            <ul id="list">
+                <li><b>HTML</b></li>
+                <li><b>CSS</b></li>
+                <li><b>JAVA SCRIPT</b></li>
+                <li><b>PYTHON</b></li>
+                <li><b>MS EXCEL</b></li>
+            </ul>
+        </section>
+
+        <!-- BLOG SECTION -->
+        <section id="sec-blog">
+            <h2 id="BLOG">BLOG</h2>
+            <div id="blog-grid">
+                <article class="blog-post">
+                    <h3>Starting My Web Dev Journey</h3>
+                    <time datetime="2026-06-01">June 1, 2026</time>
+                    <p>How I picked up HTML and CSS basics and built my first responsive layout using Flexbox and Grid.</p>
+                </article>
+                <article class="blog-post">
+                    <h3>Learning Bootstrap Components</h3>
+                    <time datetime="2026-06-20">June 20, 2026</time>
+                    <p>Notes on using Bootstrap cards and modals to speed up UI development without writing custom CSS for everything.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="sec-4">
+            <h2 id="FORM">FILL THE FORM <img src="icon/checklist.png" alt="icon" width="25" height="25"></h2>
+
+            <form>
+                <label for="name">NAME</label><br>
+                <input type="text" id="name" maxlength="10" pattern="[ A-Za-z]+" required placeholder="enter your name"><br>
+
+                <label for="mail">EMAIL</label><br>
+                <input type="email" id="mail" required minlength="15" placeholder="enter your mail"><br>
+
+                <label for="mobile-num">MOBILE</label><br>
+                <input type="tel" id="mobile-num" maxlength="10" pattern="[0-9]+" required placeholder="enter your number"><br>
+
+                <label for="pass">PASSWORD</label><br>
+                <input type="password" id="pass" maxlength="8" pattern="[a-z]+" required placeholder="enter your password"><br><br>
+
+                <label for="feedback">FEEDBACK</label><br>
+                <textarea id="feedback" name="feedback" rows="4" cols="30" placeholder="enter your feedback" required></textarea><br>
+
+                <button type="submit">submit</button>
+            </form>
+        </section>
+
+    </main>
+
+    <footer id="footer">
+        <h4>&copy; contact us</h4>
+        <h6 id="email">email : ecsurya012@gmail.com</h6>
+        <h6 id="mobile">mobile : 8248636823</h6>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById("head").classList.toggle("open");
+        }
+    </script>
+
+    <!-- Bootstrap JS (needed for modal to work) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
